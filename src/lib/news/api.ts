@@ -1,5 +1,5 @@
-import { newsConfig } from "./config";
 import { INewsArticle } from "@/types";
+import { newsConfig } from "./config";
 
 export async function fetchNewsArticles() {
   const newsApiKey = newsConfig.apiKey;
@@ -8,7 +8,16 @@ export async function fetchNewsArticles() {
 
   try {
     const response = await fetch(apiUrl);
+    
+    if (!response.ok) {
+      throw new Error('Failed to fetch news articles');
+    }
+    
     const data = await response.json();
+
+    if (!data.articles || !Array.isArray(data.articles)) {
+      throw new Error('Invalid response format: missing articles array');
+    }
 
     // Filter out articles with missing or invalid data
     const filteredArticles = data.articles.filter((article: INewsArticle) => (
