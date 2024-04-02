@@ -23,11 +23,16 @@ export type IUser = {
   export type INewsArticle = {
     title: string;
     description: string;
-    source: {
-        name: string;
-    };
-    author?: string;
-    publishedAt: string;
     url: string;
-    urlToImage?: string; 
+    image: string; 
+    publishedAt: string;
+}
+
+export type IContextType = {
+  user: IUser;
+  isLoading: boolean;
+  setUser: React.Dispatch<React.SetStateAction<IUser>>;
+  isAuthenticated: boolean;
+  setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
+  checkAuthUser: () => Promise<boolean>;
 }

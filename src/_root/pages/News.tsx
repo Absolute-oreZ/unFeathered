@@ -25,29 +25,25 @@ function News() {
 
   useEffect(() => {
     sortNews();
-  }, [sortBy, sortDirection]);
-
+  }, [sortBy, sortDirection]); // Remove filteredNews dependency
   const sortNews = () => {
-    const sortedNews = filteredNews.slice().sort((a, b) => {
-      // @ts-ignore
-      let valueA = sortBy === 'publishedAt' ? new Date(a.publishedAt).getTime() : a[sortBy];
-      // @ts-ignore
-      let valueB = sortBy === 'publishedAt' ? new Date(b.publishedAt).getTime() : b[sortBy];
+    const sortedNews = news.slice().sort((a, b) => {
+      let valueA: string | number = 0; // Default value for comparison
+      let valueB: string | number = 0; // Default value for comparison
 
-      // Convert to lower case if values are strings
-      if (typeof valueA === 'string') {
-        valueA = valueA.toLowerCase();
-      }
-      if (typeof valueB === 'string') {
-        valueB = valueB.toLowerCase();
+      if (sortBy === 'publishedAt') {
+        valueA = new Date(a.publishedAt).getTime();
+        valueB = new Date(b.publishedAt).getTime();
+      } else if (sortBy === 'title') {
+        valueA = a.title.toLowerCase();
+        valueB = b.title.toLowerCase();
       }
 
-      // Check if values are valid strings before using localeCompare
-      if (typeof valueA === 'string' && typeof valueB === 'string') {
-        return sortDirection === 'desc' ? valueB.localeCompare(valueA) : valueA.localeCompare(valueB);
+      // Sorting based on sort direction
+      if (sortDirection === 'desc') {
+        return valueB < valueA ? -1 : valueB > valueA ? 1 : 0;
       } else {
-        // Fallback comparison for non-string values
-        return sortDirection === 'desc' ? valueB - valueA : valueA - valueB;
+        return valueA < valueB ? -1 : valueA > valueB ? 1 : 0;
       }
     });
     setFilteredNews(sortedNews);
@@ -56,10 +52,12 @@ function News() {
 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSortBy(event.target.value);
+    sortNews(); // Call sortNews when sortBy changes
   };
 
   const handleSortDirectionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSortDirection(event.target.value);
+    sortNews(); // Call sortNews when sortDirection changes
   };
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -109,18 +107,18 @@ function News() {
           <div key={index} className="border-b py-6">
             <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center">
               <div className="flex items-center mb-4 sm:mb-0 sm:w-3/4">
-                {article.urlToImage && (
-                  <img src={article.urlToImage} alt="News Thumbnail" className="w-32 h-auto mr-4" />
+                {article.image && (
+                  <img src={article.image} alt="News Thumbnail" className="w-48 h-auto mr-4" />
                 )}
-                <div className="flex flex-col">
+                <div className="flex flex-col text-justify">
                   <h3 className="text-xl font-semibold mb-2">{article.title}</h3>
                   <p className="text-gray-600 mb-2">{article.description}</p>
                   <p><a href={article.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Read more</a></p>
                 </div>
               </div>
-              <div className="mt-4 sm:mt-0 sm:w-1/4">
-                <p><span className="font-semibold">Author:</span> {article.author || 'Unknown'}</p>
-                <p><span className="font-semibold">Published at:</span> {new Date(article.publishedAt).toLocaleDateString("ms-MY")}</p>
+              <div className="flex-col mt-4 sm:mt-0 sm:w-1/4 mx-4">
+                <p><span className="font-semibold">Published at:</span></p>
+                <p> {new Date(article.publishedAt).toLocaleDateString("en-US")}</p>
               </div>
             </div>
           </div>

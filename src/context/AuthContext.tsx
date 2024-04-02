@@ -1,9 +1,9 @@
-import { useNavigate } from "react-router-dom";
 import { createContext, useContext, useEffect, useState } from "react";
-
-import { IUser } from "@/types";
+import { useNavigate } from "react-router-dom";
+import { IContextType, IUser } from "@/types";
 import { getCurrentUser } from "@/lib/appwrite/api";
 
+// Define initial user object
 export const INITIAL_USER = {
     id: "",
     name: "",
@@ -13,32 +13,29 @@ export const INITIAL_USER = {
     bio: "",
 };
 
+// Initial state object
 const INITIAL_STATE = {
     user: INITIAL_USER,
     isLoading: false,
     isAuthenticated: false,
-    setUser: () => { },
-    setIsAuthenticated: () => { },
+    setUser: () => {},
+    setIsAuthenticated: () => {},
     checkAuthUser: async () => false as boolean,
 };
 
-type IContextType = {
-    user: IUser;
-    isLoading: boolean;
-    setUser: React.Dispatch<React.SetStateAction<IUser>>;
-    isAuthenticated: boolean;
-    setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
-    checkAuthUser: () => Promise<boolean>;
-};
-
+// Context creation
 const AuthContext = createContext<IContextType>(INITIAL_STATE);
 
+// Context provider component
 export function AuthProvider({ children }: { children: React.ReactNode }) {
     const navigate = useNavigate();
     const [user, setUser] = useState<IUser>(INITIAL_USER);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(
+        localStorage.getItem("isAuthenticated") === "true"
+    );
     const [isLoading, setIsLoading] = useState(false);
 
+    // Function to check if user is authenticated
     const checkAuthUser = async () => {
         setIsLoading(true);
         try {
@@ -53,10 +50,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                     bio: currentAccount.bio,
                 });
                 setIsAuthenticated(true);
-
+                localStorage.setItem("isAuthenticated", "true"); // Set isAuthenticated in localStorage
                 return true;
             }
-
             return false;
         } catch (error) {
             console.error(error);
@@ -66,6 +62,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
     };
 
+    // Check authentication status on component mount
     useEffect(() => {
         const cookieFallback = localStorage.getItem("cookieFallback");
         if (
@@ -79,6 +76,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         checkAuthUser();
     }, []);
 
+    // Value for context
     const value = {
         user,
         setUser,
@@ -91,4 +89,5 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
+// Custom hook to consume context
 export const useUserContext = () => useContext(AuthContext);

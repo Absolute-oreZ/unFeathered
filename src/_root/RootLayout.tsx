@@ -5,6 +5,11 @@ import FooterDemo from "@/_root/components/FooterDemo";
 import { Button } from "@/components/ui/button";
 import "/globals.css";
 
+const handleSignOut = () => {
+  sessionStorage.clear();
+  localStorage.clear();
+}
+
 const RootLayout = () => {
   return (
     <div className="flex flex-col min-h-screen w-full">
@@ -31,7 +36,7 @@ const RootLayout = () => {
               <NavigationMenuItem asChild className="justify-end">
                 <Link to="/sign-in">
                   <div>
-                    <Button onClick={() => sessionStorage.clear()}>
+                    <Button onClick={handleSignOut}>
                       <img src="/assets/icons/logout.png" alt="Log Out" className="h-8 w-auto " />
                       <p className="text-red ml-2">Sign Out</p>
                     </Button>
