@@ -70,6 +70,9 @@ We welcome contributions from the community! If you'd like to contribute to unFe
 4. Push to your branch: `git push origin feature-name`.
 5. Submit a pull request detailing your changes.
 
+### License
+
+Distributed under the MIT License.
 
 ### Contact
 

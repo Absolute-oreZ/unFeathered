@@ -7,8 +7,6 @@ import SignupForm from './_auth/forms/SignupForm';
 import RootLayout from './_root/RootLayout';
 import { Home, KnowledgeHub, News, SelfAssessment } from './_root/pages';
 import { Toaster } from './components/ui/toaster';
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const { isAuthenticated } = useUserContext();
@@ -40,8 +38,6 @@ function App() {
         )}
       </Routes>
 
-      <Analytics />
-      <SpeedInsights />
       <Toaster />
     </main>
   );
