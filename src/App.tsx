@@ -13,7 +13,7 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isAuthenticated && window.location.pathname !== '/sign-in') {
+    if (!isAuthenticated && window.location.pathname != '/sign-up') {
       navigate('/sign-in');
     }
   }, [isAuthenticated, navigate]);
