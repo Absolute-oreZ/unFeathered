@@ -13,11 +13,11 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!isAuthenticated && window.location.pathname !== '/sign-in') {
       navigate('/sign-in');
     }
   }, [isAuthenticated, navigate]);
-
+  
   return (
     <main className='flex h-screen'>
       <Routes>
