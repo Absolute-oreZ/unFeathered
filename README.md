@@ -1,81 +1,115 @@
-### unFeathered README
+<div align='center'>
 
-Welcome to unFeathered!
+<img src=https://raw.githubusercontent.com/Absolute-oreZ/unFeathered/main/public/assets/images/unFeathered.png alt="logo" width=440 height=210 />
 
-unFeathered is a comprehensive web application designed to educate users about financial fraud prevention and provide resources for understanding and combating fraudulent activities in the capital market. This README will guide you through the setup process and provide an overview of the project structure and features.
+![Static Badge](https://img.shields.io/badge/TAILWIND_CSS-lightblue?style=flat-square&logo=tailwind%20css&logoColor=white)
+![Static Badge](https://img.shields.io/badge/REACT_JS-darkgreen?style=flat-square&logo=react&logoColor=white)
+![Static Badge](https://img.shields.io/badge/APPWRITE-pink?style=flat-square&logo=appwrite&logoColor=white)
+![Static Badge](https://img.shields.io/badge/TANSTACK_QUERY-orange?style=flat-square&logo=react%20query&logoColor=white)
+![Static Badge](https://img.shields.io/badge/SHADCN%2FUI-white?style=flat-square&logo=shadcn%2Fui&logoColor=white&labelColor=black&color=black)
 
-### Features
+<h1>unFeathered</h1>
+<p>A cutting-edge solution for combating financial fraud.</p>
 
-- **Achievement Boxes**: Showcase notable achievements, such as certified consultants, satisfied clients, years of experience, and awards.
-- **Understand Financial Fraud Section**: Educate users about the nature of financial fraud, including red flags, types of fraud, and prevention measures.
-- **Common Types of Fraud Section**: Explore common types of financial fraud, such as investment scams, market manipulation, and identity theft, with detailed descriptions and illustrations.
-- **Join Our Community Section**: Encourage users to become part of the community focused on fraud prevention. Highlight benefits like innovation, networking, and continuous learning.
+<h4> <span> · </span> <a href="https://github.com/Absolute-oreZ/unFeathered/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/Absolute-oreZ/unFeathered/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/Absolute-oreZ/unFeathered/issues"> Request Feature </a> </h4>
 
-### Setup
+</div>
 
-To run unFeathered locally, follow these steps:
+# :notebook_with_decorative_cover: Table of Contents
 
-1. **Clone the Repository**: 
-    ```bash
-    git clone https://github.com/Absolute-oreZ/unFeathered.git
-    ```
+- [About the Project](#star2-about-the-project)
+- [Roadmap](#compass-roadmap)
+- [License](#warning-license)
+- [Contact](#handshake-contact)
 
-2. **Navigate to the Project Directory**:
-    ```bash
-    cd unFeathered
-    ```
+## :star2: About the Project
 
-3. **Install Dependencies**:
-    ```bash
-    npm install
-    ```
+### :camera: Screenshots
 
-4. **Start the Development Server**:
-    ```bash
-    npm start
-    ```
+<div align="center"> <a href=""><img src="https://i.postimg.cc/BQ76tVzY/Screenshot-2024-04-12-035927.png" alt='image' width='800'/></a> </div>
+<div align="center"> <a href=""><img src="https://i.postimg.cc/x8q5QZhr/Screenshot-2024-04-12-034854.png" alt='image' width='800'/></a> </div>
+<div align="center"> <a href=""><img src="https://i.postimg.cc/3rX7d50m/Screenshot-2024-04-12-040048.png" alt='image' width='800'/></a> </div>
+<div align="center"> <a href=""><img src="https://i.postimg.cc/Pxn9jJ4c/Screenshot-2024-04-12-040104.png" alt='image' width='800'/></a> </div>
 
-5. **Open in Your Browser**:
-   Once the development server has started, you can open `http://localhost:3000` in your web browser to view unFeathered.
+### :space_invader: Tech Stack
 
-### Project Structure
+<details> <summary>Client</summary> <ul>
+<li><a href="https://react.dev/">React JS</a></li>
+</ul> </details>
+<details> <summary>Server</summary> <ul>
+<li><a href="https://appwrite.io/">Appwrite</a></li>
+</ul> </details>
+<details> <summary>Database</summary> <ul>
+<li><a href="https://appwrite.io/">Appwrite</a></li>
+</ul> </details>
 
+### :dart: Features
+
+- Self-Assessment Quiz
+- Integrated Fraud-Related News
+- Knowledge Hub
+- Safe Authentication
+
+### :art: Color Reference
+
+| Color           | Hex                                                              |
+| --------------- | ---------------------------------------------------------------- |
+| Primary Color   | ![#222831](https://via.placeholder.com/10/222831?text=+) #222831 |
+| Secondary Color | ![#393E46](https://via.placeholder.com/10/393E46?text=+) #393E46 |
+| Accent Color    | ![#00ADB5](https://via.placeholder.com/10/00ADB5?text=+) #00ADB5 |
+| Text Color      | ![#000000](https://via.placeholder.com/10/000000?text=+) #000000 |
+
+## :toolbox: Getting Started
+
+### :running: Run Locally
+
+Clone the project
+
+```bash
+https://github.com/Absolute-oreZ/unFeathered
 ```
-unFeathered/
-│
-├── public/                 # Public assets (images, icons)
-├── src/                    # Source code
-│   ├── components/         # React components
-│   ├── App.js              # Main application component
-│   └── index.js            # Entry point
-│
-├── README.md               # Project README
-└── package.json            # Package configuration
+
+Navigate to the Project Directory
+
+```bash
+cd unFeathered
 ```
 
-### Technologies Used
+Install Dependencies
 
-- **React**: Frontend library for building user interfaces.
-- **Tailwind CSS**: Utility-first CSS framework for styling components.
-- **JavaScript (ES6+)**: Programming language for building interactive web applications.
-- **npm**: Package manager for installing and managing project dependencies.
+```bash
+npm install
+```
 
-### Contributing
+Start the Development Server
 
-We welcome contributions from the community! If you'd like to contribute to unFeathered, please follow these steps:
+```bash
+npm start
+```
 
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix: `git checkout -b feature-name`.
-3. Make your changes and commit them: `git commit -m 'Add new feature'`.
-4. Push to your branch: `git push origin feature-name`.
-5. Submit a pull request detailing your changes.
+Open in Your Browser
 
-### License
+```bash
+Once the development server has started, you can open `http://localhost:3000` in your web browser to view unFeathered.
+```
 
-Distributed under the MIT License.
+## :compass: Roadmap
 
-### Contact
+- [x] A Tips For Combating Financial Fraud Each Session
+- [x] Self-Assessment Quiz
+- [x] Integrated News About Financial Fraud Across The World
+- [x] Knowledge Hub
+- [x] Secured Authentication
+- [ ] Community And Anonymous Threads Posting
+- [ ] Crypto And Stocks Integration
+- [ ] Discussion On Each News
 
-For any inquiries or support, please contact us at yongchunhao2003@gmail.com.
+## :warning: License
 
-Thank you for using unFeathered! We hope you find it valuable in your journey to combat financial fraud.
+Distributed under the no License. See LICENSE.txt for more information.
+
+## :handshake: Contact
+
+Yong Chun Hao - - yongchunhao2003@gmail.com
+
+Project Link: [https://github.com/Absolute-oreZ/unFeathered](https://github.com/Absolute-oreZ/unFeathered)
