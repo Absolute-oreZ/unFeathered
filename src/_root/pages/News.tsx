@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { fetchNewsArticles } from '@/lib/news/api';
 import { INewsArticle } from '@/types';
+import { formatDateString } from '@/lib/utils';
 
 function News() {
   const [news, setNews] = useState<INewsArticle[]>([]);
@@ -118,7 +119,7 @@ function News() {
               </div>
               <div className="flex-col mt-4 sm:mt-0 sm:w-1/4 mx-4">
                 <p><span className="font-semibold">Published at:</span></p>
-                <p> {new Date(article.publishedAt).toLocaleDateString("en-US")}</p>
+                <p> {formatDateString(article.publishedAt)}</p>
               </div>
             </div>
           </div>
